@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 依赖项列表（带链接）</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .dependency {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .dependency:last-child {
+            border-bottom: none;
+        }
+        .dependency-name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .dependency-link {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .dependency-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .note {
+            background-color: #e7f5ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 25px;
+            font-size: 0.9em;
+        }
+        .copy-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .copy-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Python 依赖项列表</h1>
+        
+        <div id="dependencies-list">
+            <div class="dependency">
+                <span class="dependency-name">fastapi==0.68.0</span>
+                <a href="https://pypi.org/project/fastapi/0.68.0/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">uvicorn==0.15.0</span>
+                <a href="https://pypi.org/project/uvicorn/0.15.0/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">websockets==10.1</span>
+                <a href="https://pypi.org/project/websockets/10.1/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">pydantic==1.8.2</span>
+                <a href="https://pypi.org/project/pydantic/1.8.2/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">typing-extensions==4.0.1</span>
+                <a href="https://pypi.org/project/typing-extensions/4.0.1/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">python-multipart==0.0.5</span>
+                <a href="https://pypi.org/project/python-multipart/0.0.5/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">starlette==0.14.2</span>
+                <a href="https://pypi.org/project/starlette/0.14.2/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">asyncio==3.4.3</span>
+                <a href="https://pypi.org/project/asyncio/3.4.3/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">logging==0.5.1.2</span>
+                <a href="https://pypi.org/project/logging/0.5.1.2/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">numpy>=1.19.2</span>
+                <a href="https://pypi.org/project/numpy/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+            <div class="dependency">
+                <span class="dependency-name">websocket-client==1.2.1</span>
+                <a href="https://pypi.org/project/websocket-client/1.2.1/" class="dependency-link" target="_blank">查看详情</a>
+            </div>
+        </div>
+        
+        <div class="note">
+            <p><strong>使用说明：</strong></p>
+            <p>1. 点击每个包名右侧的"查看详情"链接可以访问该包在PyPI的官方页面</p>
+            <p>2. 你可以复制下面的完整依赖列表到你的requirements.txt文件中</p>
+            <textarea id="requirements-text" style="width: 100%; height: 120px; margin-top: 10px; font-family: monospace;" readonly>
+fastapi==0.68.0
+uvicorn==0.15.0
+websockets==10.1
+pydantic==1.8.2
+typing-extensions==4.0.1
+python-multipart==0.0.5
+starlette==0.14.2
+asyncio==3.4.3
+logging==0.5.1.2
+numpy>=1.19.2
+websocket-client==1.2.1</textarea>
+            <button class="copy-btn" onclick="copyToClipboard()">复制到剪贴板</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const textarea = document.getElementById('requirements-text');
+            textarea.select();
+            document.execCommand('copy');
+            alert('依赖列表已复制到剪贴板！');
+        }
+    </script>
+</body>
+</html>
